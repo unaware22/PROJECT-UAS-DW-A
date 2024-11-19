@@ -27,3 +27,11 @@
 ---
 ## TAMPILAN ABOUT
 ![image](https://github.com/user-attachments/assets/90a5f175-846b-480c-a28f-ae73ae9dad48)
+
+---
+## TAMPILAN MOBILE
+![image](https://github.com/user-attachments/assets/3b6e2982-8eb4-44d2-a1d8-02508e89ea15)
+
+---
+## TAMPILAN IPAD
+![image](https://github.com/user-attachments/assets/58f18c8d-29b5-4636-8db2-6319d2816691)
