@@ -11,7 +11,8 @@
 #### - Tentang/About Resto
 
 ## REFRENCE:
-#### https://www.sandynichols.net/design-inspiration/mellow-mushroom/
+##### https://www.sandynichols.net/design-inspiration/mellow-mushroom/
+##### https://www.awwwards.com/inspiration/michi-ramen-traditional-japanese-noodles-austin-tx
 
 # RESTO KEMANG
 #### Website yang memiliki fitur dan fungsi seperti:
@@ -23,5 +24,6 @@
 ## TAMPILAN AWAL
 ![image](https://github.com/user-attachments/assets/087c9ba1-838c-4465-bd42-2c8ff84c56e4)
 
+---
 ## TAMPILAN ABOUT
 ![image](https://github.com/user-attachments/assets/90a5f175-846b-480c-a28f-ae73ae9dad48)
