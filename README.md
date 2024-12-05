@@ -17,6 +17,10 @@
 #### - Awalan Tampilan
 
 #### - Tentang/About Resto
+#### - Filter
+#### - Menu
+#### - Cart
+#### - Book Table
 
 ## REFRENCE:
 
