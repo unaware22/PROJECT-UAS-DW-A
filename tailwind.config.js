@@ -23,7 +23,6 @@ module.exports = {
         'custom': '#FFE900',
       },
       fontFamily: {
-        'customFont1': ['CustomFont1'],
         'customFont2': ['CustomFont2', 'sans-serif'],
         'customFont3': ['CustomFont3', 'sans-serif'],
         'customFont4': ['CustomFont4', 'sans-serif'],
