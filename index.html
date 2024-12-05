@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto Kemang</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#26282A] font-Kamerik205 scroll-smooth">
+    <!-- Background -->
+    <section id="home" class="relative bg-no-repeat bg-cover bg-center text-white min-h-screen " style="background-image: url('img/wagyu\ \(3\).jpg');" loading="lazy">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- Header -->
+        <header class="flex justify-between items-center px-6 sm360:py-6 md:py-4 w-full sm360:bg-black md:bg-transparent z-30 sm360:fixed md:relative">
+            <!-- Logo -->
+            <a href="#home"><h1 class="text-5xl font-bolder text-white sm360:text-white md:text-white font-Dramaturg">RSTKMG</h1></a>
+
+           <!-- Desktop -->
+            <div class="hidden md:flex items-center gap-4 font-semibold text-xs">
+                <nav class="space-x-6">
+                    <a href="#aboutsection" class="hover:text-gray-500">ABOUT</a>
+                    <a href="#menu" class="hover:text-gray-500">MENU</a>
+                    <a href="#" class="hover:text-gray-500">CONTACT US</a>
+                </nav>
+                <a href="#menu" class="bg-white text-gray-800 px-4 py-2 rounded-sm font-Kamerik205Bold">Order Now</a>
+            </div>
+
+            <!-- Navbar Button (mobile) -->
+            <button id="navbar-btn" class="md:hidden flex flex-col items-center gap-1 ">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16" />
+              </svg>
+            </button>
+        
+           <!-- Navbar Menu (mobile) -->
+            <div id="mobile-menu" class="absolute top-full right-0 w-full bg-[#252525] shadow-md hidden flex-col items-center gap-4 py-5 px-4 md:hidden z-10 text-center text-xs">
+                <nav class="space-y-5">
+                    <a href="#aboutsection" class="block text-white hover:text-gray-500">ABOUT</a>
+                    <a href="#menu" class="block text-white hover:text-gray-500">MENU</a>
+                    <a href="#contact" class="block text-white hover:text-gray-500">CONTACT US</a>
+                </nav>
+                
+            </div>
+        </header>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 flex flex-col justify-center items-center text-center h-[70vh] px-4">
+            <h1 class="text-[6rem] sm:text-[8rem] md:text-[9rem] lg:text-[12rem] xl:text-[13rem] font-bold leading-tight text-custom font-customFont3">RESTO <br> KEMANG</h1>
+            <a href="#menu" class="mt-6 bg-white text-black px-6 py-3 rounded-lg font-Kamerik205Bold text-lg md:hidden">Order Now</a>
+        </div>
+
+
+  <script src="script.js">
+  </script>
+   
+
+</body>
+</html>
