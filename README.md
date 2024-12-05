@@ -18,7 +18,7 @@
 #### Website yang memiliki fitur dan fungsi seperti:
 ##### - Memesan menu
 ##### - Cek jadwal buka resto
-##### - Booking mejad
+##### - Booking meja
 ##### - Pembayaran
 
 ## TAMPILAN AWAL
