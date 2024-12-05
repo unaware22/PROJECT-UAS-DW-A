@@ -61,3 +61,21 @@
 ## TAMPILAN IPAD
 
 ![image](https://github.com/user-attachments/assets/58f18c8d-29b5-4636-8db2-6319d2816691)
+
+
+
+##### TAMPILAN TERBARU
+
+## TAMPILAN AWAL
+![image](https://github.com/user-attachments/assets/3185917a-6978-4a9f-944c-a28fd878a4ca)
+
+---
+## TAMPILAN MENU
+![image](https://github.com/user-attachments/assets/5d41d04b-6855-4a94-b240-371e39b17cde)
+
+---
+## TAMPILAN CART
+![image](https://github.com/user-attachments/assets/94b6ff46-ac10-4273-ab91-a727470e06f7)
+
+
+
