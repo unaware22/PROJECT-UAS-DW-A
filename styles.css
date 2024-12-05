@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'CustomFont1';
+    src: url('./font/NeueBody.otf') format('truetype');
+    font-weight: normal;
+    font-size: normal;
+}
+
+@font-face {
     font-family: 'CustomFont2';
     src: url('./font/light.ttf') format('truetype');
 }
@@ -24,4 +31,10 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Kamerik205Bold';
+    src: url('font/Kamerik\ 205\ Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
 
