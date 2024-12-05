@@ -26,19 +26,11 @@
 ##### - Pembayaran
 
 ## TAMPILAN AWAL
-![image](https://github.com/user-attachments/assets/3185917a-6978-4a9f-944c-a28fd878a4ca)
+![image](https://github.com/user-attachments/assets/087c9ba1-838c-4465-bd42-2c8ff84c56e4)
 
 ---
 ## TAMPILAN ABOUT
-![image](https://github.com/user-attachments/assets/29f79573-b6ee-4571-b3d6-f3256ce6d8b3)
-
----
-## TAMPILAN MENU
-![image](https://github.com/user-attachments/assets/5d41d04b-6855-4a94-b240-371e39b17cde)
-
----
-## TAMPILAN CART
-![image](https://github.com/user-attachments/assets/94b6ff46-ac10-4273-ab91-a727470e06f7)
+![image](https://github.com/user-attachments/assets/90a5f175-846b-480c-a28f-ae73ae9dad48)
 
 ---
 ## TAMPILAN MOBILE
