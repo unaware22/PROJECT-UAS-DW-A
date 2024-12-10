@@ -1,0 +1,170 @@
+@font-face {
+    font-family: 'Noyh';
+    src: url('FONT/noyh-r-regular.ttf') format('truetype');
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noyh';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #F0F8FF;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    background: #f9f7f7;
+    border: 2px solid rgba(255, 255, 255, .2);
+    width: 420px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: black;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    margin-top: 2rem;
+    text-align: left;
+    font-size: 30px;
+}
+
+.wrapper .paragraf {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.wrapper .input-box {
+    position: relative;
+    margin: 30px 0;
+    height: 50px;
+    width: 100%;
+}
+
+.wrapper input {
+    max-width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: black;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forgot {
+    justify-content: space-between;
+    display: flex;
+    margin: -15px 0 15px;
+    font-size: 14.5px;
+}
+
+.wrapper .close-button {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.remember-forgot p {
+    accent-color: #fff;
+    margin-right: 90px;
+}
+
+.remember-forgot a {
+    text-decoration: none;
+    color: black;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #80b82d;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.wrapper .btn:hover {
+    background: #006400;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link p a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+   
+    .wrapper {
+        width: 90%;
+        padding: 20px 20px;
+    }
+
+    .wrapper h1 {
+        font-size: 24px;
+    }
+
+    .wrapper input {
+        font-size: 14px;
+        padding: 15px 35px 15px 15px;
+        font-weight: bold;
+    }
+
+    .wrapper .btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .input-box i {
+        right: 15px;
+        font-size: 18px;
+    }
+
+    .wrapper .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 13px;
+    }
+}
