@@ -208,7 +208,6 @@ takeawayCheckbox.addEventListener('change', () => {
   }
 });
 
-
 // Checkout
 checkoutButton1.addEventListener('click', () => {
   if (!tableBooked && !takeawayCheckbox.checked) {
@@ -269,11 +268,16 @@ checkoutButton1.addEventListener('click', () => {
         }
       }
 
-      // Uncheck Takeaway checkbox
+      // Reset Takeaway checkbox after checkout
       takeawayCheckbox.checked = false;
+
+      // Ensure "Book Table" button is enabled after reset
+      bookTableBtn.disabled = false;
+      bookTableBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
     }
   });
 });
+
 
   // Initial render
   renderCartItems();

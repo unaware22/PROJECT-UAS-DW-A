@@ -26,4 +26,26 @@
     }
   }
   
- 
+  /* Sidebar Layout */
+#cartSidebar {
+  display: flex;
+  flex-direction: column; /* Mengatur sidebar dalam kolom vertikal */
+  height: 100vh; /* Menutupi tinggi penuh layar */
+}
+
+/* Cart Items */
+#cartItems {
+  flex: 1; /* Membuat area items flexible agar bisa di-scroll */
+  overflow-y: auto; /* Menambahkan scroll hanya di area cart items */
+  padding: 1rem; /* Memberikan padding agar lebih rapi */
+  max-height: calc(100vh - 250px); /* Sesuaikan tinggi agar footer tidak tertimpa */
+}
+
+/* Footer (Bagian bawah cart) */
+#cartSidebar .p-4 {
+  background: #2d2d2d; /* Warna background footer */
+  position: relative;
+  z-index: 10; /* Pastikan berada di atas */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow agar terlihat lebih jelas */
+}
+
