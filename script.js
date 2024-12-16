@@ -193,64 +193,87 @@ function renderCartItems() {
     <div class="text-lg font-bold">Total: Rp. ${total.toLocaleString('id-ID')}</div>
   `;
 }
+// DOM Elements
+const takeawayCheckbox = document.getElementById('takeawayCheckbox');
+
+// Disable "Book Table" if Takeaway is selected
+takeawayCheckbox.addEventListener('change', () => {
+  if (takeawayCheckbox.checked) {
+    bookTableBtn.disabled = true; // Disable Book Table
+    bookTableBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
+    tableBooked = false; // Reset booking status if previously booked
+  } else {
+    bookTableBtn.disabled = false; // Enable Book Table
+    bookTableBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
+  }
+});
 
 
-  // Checkout
-  checkoutButton1.addEventListener('click', () => {
-    if (!tableBooked) {
-      Swal.fire({
-        title: "Booking Required",
-        text: "Please book a table before proceeding to checkout.",
-        icon: "warning",
-      });
-      return;
-    }
-
-    if (cart.length === 0) {
-      Swal.fire({
-        title: "Error",
-        text: "Your cart is empty.",
-        icon: "error",
-      });
-      return;
-    }
-
-    // Confirm checkout
+// Checkout
+checkoutButton1.addEventListener('click', () => {
+  if (!tableBooked && !takeawayCheckbox.checked) {
     Swal.fire({
-      title: "Are you sure?",
-      text: `Do you want to complete the payment of Rp. ${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toLocaleString('id-ID')}?`,
+      title: "Selection Required",
+      text: "Please choose either 'Book Table' or 'Takeaway' before proceeding to checkout.",
       icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, pay now!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: "Payment Successful",
-          text: "Thank you for your purchase!",
-          icon: "success",
-        });
+    });
+    return;
+  }
 
-        // Reset cart and booking
-        cart = [];
-        saveCart();
-        renderCartItems();
+  if (cart.length === 0) {
+    Swal.fire({
+      title: "Error",
+      text: "Your cart is empty.",
+      icon: "error",
+    });
+    return;
+  }
 
-        // Reset table booking
+  const checkoutMessage = takeawayCheckbox.checked
+    ? "Thank you for choosing takeaway!"
+    : "Thank you for booking a table!";
+
+  // Confirm checkout
+  Swal.fire({
+    title: "Are you sure?",
+    text: `Do you want to complete the payment of Rp. ${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toLocaleString('id-ID')}?`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, pay now!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Payment Successful",
+        text: checkoutMessage,
+        icon: "success",
+      });
+
+      // Reset cart and booking
+      cart = [];
+      saveCart();
+      renderCartItems();
+
+      // Reset table booking if applicable
+      if (!takeawayCheckbox.checked) {
         tableBooked = false;
         bookTableBtn.disabled = false;
         bookTableBtn.textContent = "Book Table";
         bookTableBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
 
-        // Deselect table
+        // Deselect Table
         if (selectedTable) {
           selectedTable.classList.remove('bg-green-300');
           selectedTable = null;
         }
       }
-    });
+
+      // Uncheck Takeaway checkbox
+      takeawayCheckbox.checked = false;
+    }
   });
+});
 
   // Initial render
   renderCartItems();
