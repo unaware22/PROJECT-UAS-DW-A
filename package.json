@@ -13,6 +13,7 @@
     }
   ],
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "tailwind-scrollbar-hide": "^1.1.7"
   }
 }
