@@ -18,14 +18,14 @@
         <!-- Header -->
         <header class="flex justify-between items-center px-6 sm360:py-6 md:py-4 w-full sm360:bg-black md:bg-transparent z-30 sm360:fixed md:relative">
             <!-- Logo -->
-            <a href="#home"><h1 class="text-5xl font-bolder text-white sm360:text-white md:text-white font-Dramaturg">RSTKMG</h1></a>
+            <a href="#home"><h2 class="text-3xl font-Kamerik205Bold">Resto<span class="text-yellow-400">Kemang</span></h2></a>
 
-           <!-- Desktop -->
-            <div class="hidden md:flex items-center gap-4 font-semibold text-xs">
-                <nav class="space-x-6">
-                    <a href="#aboutsection" class="hover:text-gray-500">ABOUT</a>
-                    <a href="#menu" class="hover:text-gray-500">MENU</a>
-                    <a href="#" class="hover:text-gray-500">CONTACT US</a>
+            <!-- Desktop -->
+             <div class="hidden md:flex items-center gap-4 font-Kamerik205Bold text-xs">
+                 <nav class="space-x-6">
+                     <a href="#aboutsection" class="hover:text-gray-500">ABOUT</a>
+                     <a href="#menu" class="hover:text-gray-500">MENU</a>
+                     <a href="#footer" class="hover:text-gray-500">CONTACT US</a>
                 </nav>
                 <a href="#menu" class="bg-white text-gray-800 px-4 py-2 rounded-sm font-Kamerik205Bold">Order Now</a>
             </div>
@@ -107,32 +107,34 @@
       </div>
 
       <!-- Filter Buttons -->
-      <div class="flex justify-center space-x-4 mb-10 md:text-xl sm360:text-xs font-customFont2">
-        <button
-          class="filter-button active bg-gray-700 text-white py-2 px-4 rounded"
-          data-filter="all">
-          All
-        </button>
-        <button
-          class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
-          data-filter="curry">
-          Curry
-        </button>
-        <button
-          class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
-          data-filter="bowl">
-          Bowl
-        </button>
-        <button
-          class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
-          data-filter="snack">
-          Snack
-        </button>
-        <button
-          class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
-          data-filter="drink">
-          Drink
-        </button>
+      <div class="overflow-x-auto scrollbar-hide">
+        <div class="flex mb-10 md:justify-center sm:justify-start space-x-4 md:text-xl sm:text-xs font-customFont2 px-4">
+          <button
+            class="filter-button active bg-gray-700 text-white py-2 px-4 rounded"
+            data-filter="all">
+            All
+          </button>
+          <button
+            class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
+            data-filter="curry">
+            Curry
+          </button>
+          <button
+            class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
+            data-filter="bowl">
+            Bowl
+          </button>
+          <button
+            class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
+            data-filter="snack">
+            Snack
+          </button>
+          <button
+            class="filter-button bg-gray-700 text-white py-2 px-4 rounded"
+            data-filter="drink">
+            Drink
+          </button>
+        </div>
       </div>
 
 
@@ -2072,13 +2074,20 @@
     <div class="relative">
       <!-- Button to toggle cart -->
       <button 
-        id="toggleCartButton" 
-        class="fixed bottom-4 right-4 bg-white text-black hover:bg-black hover:text-white px-2 py-2 rounded shadow-lg z-50">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-        </svg>
-        
+      id="toggleCartButton" 
+      class="fixed bottom-4 right-4 bg-white text-black hover:bg-black hover:text-white px-3 py-3 rounded shadow-lg z-50 ">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+      </svg>
+      <!-- Notification badge -->
+      <span 
+        id="cartNotification" 
+        class="absolute top-0 right-0 -mt-2 -mr-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
       </button>
+
+
     
       <!-- Cart Sidebar -->
       <div id="cartSidebar" class="fixed top-0 right-0 h-full  bg-[#1d1d1d] text-white xl:w-full lg:w-full sm:w-full sm360:w-full transform translate-x-full transition-transform duration-300 z-40 shadow-lg">
@@ -2102,13 +2111,13 @@
           <div class="flex items-center space-x-4 " >
             <!-- Book Table Button -->
             <button id="bookTableBtn" 
-                    class="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+                    class="px-6 py-3 bg-blue-500 text-gray-200 font-Kamerik205Bold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
               Book Table
             </button>
             
             <!-- Takeaway Label as Button -->
             <label for="takeawayCheckbox" 
-                   class="flex items-center justify-center px-6 py-3 bg-green-500 text-white font-medium rounded-lg shadow-md hover:bg-green-600 transition duration-300 cursor-pointer">
+                   class="flex items-center justify-center px-6 py-3 bg-orange-500 text-gray-200 font-Kamerik205Bold font-medium rounded-lg shadow-md hover:bg-orange-600 transition duration-300 cursor-pointer">
               Takeaway
               <input type="checkbox" id="takeawayCheckbox" class="hidden">
             </label>
@@ -2180,7 +2189,7 @@
     </div>
 
 
-<footer class=" relative mt-10 bg-cover bg-center text-white" style="background-image: url('img/footer.jpeg');">
+<footer class=" relative mt-10 bg-cover bg-center text-white" style="background-image: url('img/footer.jpg');">
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-70"></div>
 
