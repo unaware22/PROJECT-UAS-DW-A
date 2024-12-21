@@ -26,7 +26,7 @@
 
 #### - Book Meja
 
-## REFRENCE:
+## REFERENCES:
 
 ##### https://www.sandynichols.net/design-inspiration/mellow-mushroom/
 
