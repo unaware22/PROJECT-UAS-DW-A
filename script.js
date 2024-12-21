@@ -227,6 +227,18 @@ takeawayCheckbox.addEventListener("change", () => {
 
 // Checkout
 checkoutButton1.addEventListener("click", () => {
+  const buyerNameInput = document.getElementById("buyerNameInput");
+  const buyerName = buyerNameInput.value.trim(); // Ambil nilai input
+
+  if (!buyerName) {
+    Swal.fire({
+      title: "Nama Pembeli Kosong",
+      text: "Silakan masukkan nama pembeli sebelum melanjutkan.",
+      icon: "warning",
+    });
+    return;
+  }
+
   if (!tableBooked && !takeawayCheckbox.checked) {
     Swal.fire({
       title: "Selection Required",
@@ -258,11 +270,7 @@ checkoutButton1.addEventListener("click", () => {
     confirmButtonText: "Yes, pay now!",
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire({
-        title: "Payment Successful",
-        text: checkoutMessage,
-        icon: "success",
-      });
+      showReceipt(buyerName, takeawayCheckbox.checked ? "Takeaway" : "Dine-In", cart);
 
       // Reset cart and booking
       cart = [];
@@ -451,3 +459,39 @@ function closePopup() {
   // Sembunyikan popup
   document.getElementById("popup").classList.add("hidden");
 }
+
+// Fungsi untuk menampilkan bukti pembayaran
+function showReceipt(name, orderType, cart) {
+  document.getElementById("buyerName").textContent = name;
+  document.getElementById("orderType").textContent = orderType;
+
+  const receiptItems = document.getElementById("receiptItems");
+  receiptItems.innerHTML = ""; // Kosongkan isi sebelumnya
+
+  let totalPrice = 0;
+
+  cart.forEach((item) => {
+    const subtotal = item.price * item.quantity;
+    totalPrice += subtotal;
+
+    const row = `
+      <tr>
+        <td class="border border-gray-200 px-4 py-2">${item.name}</td>
+        <td class="border border-gray-200 px-4 py-2">${item.quantity}</td>
+        <td class="border border-gray-200 px-4 py-2">Rp. ${item.price.toLocaleString()}</td>
+        <td class="border border-gray-200 px-4 py-2">Rp. ${subtotal.toLocaleString()}</td>
+      </tr>
+    `;
+    receiptItems.innerHTML += row;
+  });
+
+  document.getElementById("totalPrice").textContent = totalPrice.toLocaleString();
+
+  // Tampilkan modal
+  document.getElementById("paymentReceipt").classList.remove("hidden");
+}
+
+// Tombol untuk menutup modal
+document.getElementById("closeReceipt").addEventListener("click", () => {
+  document.getElementById("paymentReceipt").classList.add("hidden");
+});
