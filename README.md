@@ -2,7 +2,7 @@
 
 #### - Aditya Nur Lintang (4523210003)
 
-#### - Athallah Safriali (4523210022)
+#### - Athalla Safriali (4523210022)
 
 #### - Alip Khoeril Akbar (4523210009)
 
