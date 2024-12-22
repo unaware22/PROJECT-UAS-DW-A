@@ -43,7 +43,6 @@
 
 /* Footer (Bagian bawah cart) */
 #cartSidebar .p-4 {
-  background: #2d2d2d; /* Warna background footer */
   position: relative;
   z-index: 10; /* Pastikan berada di atas */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow agar terlihat lebih jelas */

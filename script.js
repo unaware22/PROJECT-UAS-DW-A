@@ -170,24 +170,20 @@ function renderCartItems() {
     subtotal += price * quantity;
 
     const itemElement = document.createElement("div");
-    itemElement.classList.add("flex", "items-center", "justify-between", "bg-gray-800", "p-4", "rounded", "mb-2");
+    itemElement.classList.add("flex", "items-center", "justify-between", "bg-[#242426]", "p-4", "rounded", "mb-2");
 
     itemElement.innerHTML = `
       <div class="flex items-center">
-        <img src="${image}" alt="${name}" class="xl:w-36 xl:h-36 sm360:w-16 sm360:h-16 object-cover rounded mr-4">
+        <img src="${image}" alt="${name}" class="xl:w-36 xl:h-36 sm360:w-14 sm360:h-14 object-cover rounded mr-4">
         <div>
-          <h3 class="font-semibold">${name}</h3>
-          <p class="text-sm text-gray-400">Rp. ${price.toLocaleString("id-ID")} x ${quantity}</p>
+          <h1 class="xl:text-xl sm:text-sm font-Kamerik205Bold">${name}</h1>
+          <h3 class="sm:text-xs xl:text-xl font-Kamerik205 text-gray-400">Rp. ${price.toLocaleString("id-ID")} x ${quantity}</h3>
         </div>
       </div>
-      <div class="flex items-center">
-        <button class="px-2 py-1 text-sm bg-gray-700 text-white rounded mr-2" onclick="decreaseQuantity(${index})">-</button>
-        <button class="px-2 py-1 text-sm bg-gray-700 text-white rounded" onclick="increaseQuantity(${index})">+</button>
-        <button 
-          class="ml-4 text-red-500 hover:text-red-700 transition"
-          onclick="removeFromCart(${index})">
-          Remove
-        </button>
+      <div class="flex items-center gap-2">
+        <button class="px-2.5 py-1 text-sm bg-gray-700 text-white rounded xl:text-lg sm:text-sm" onclick="decreaseQuantity(${index})">-</button>
+        <button class="px-2 py-1 text-sm bg-gray-700 text-white rounded xl:text-lg sm:text-sm" onclick="increaseQuantity(${index})">+</button>
+        
       </div>
     `;
     cartItems.appendChild(itemElement);
@@ -460,6 +456,7 @@ function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
 
+
 // Fungsi untuk menampilkan bukti pembayaran
 function showReceipt(name, orderType, cart) {
   document.getElementById("buyerName").textContent = name;
@@ -489,9 +486,14 @@ function showReceipt(name, orderType, cart) {
 
   // Tampilkan modal
   document.getElementById("paymentReceipt").classList.remove("hidden");
+
+  // Tampilkan SweetAlert di dalam modal
+  const successAlert = document.getElementById("successAlert");
+  successAlert.classList.remove("hidden");
 }
 
 // Tombol untuk menutup modal
 document.getElementById("closeReceipt").addEventListener("click", () => {
   document.getElementById("paymentReceipt").classList.add("hidden");
 });
+
