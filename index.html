@@ -2305,22 +2305,33 @@
         </div>
         <!-- Cart Footer -->
         <div class="p-4 border-t border-gray-700">
-
+          <p class="text-lg font-semibold mb-2 text-white">Pilih Salah Satu</p>
           <div class="flex items-center space-x-4 " >
+            
             <!-- Book Table Button -->
             <button id="bookTableBtn" 
                     class="px-6 py-3 bg-blue-500 text-gray-200 font-Kamerik205Bold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-              Book Table
+              Dine-In
             </button>
             
             <!-- Takeaway Label as Button -->
             <label for="takeawayCheckbox" 
-                   class="flex items-center justify-center px-6 py-3 bg-orange-500 text-gray-200 font-Kamerik205Bold font-medium rounded-lg shadow-md hover:bg-orange-600 transition duration-300 cursor-pointer">
+                   class="flex items-center justify-center px-5 py-3 bg-orange-500 text-gray-200 font-Kamerik205Bold font-medium rounded-lg shadow-md hover:bg-orange-600 transition duration-300 cursor-pointer">
               Takeaway
               <input type="checkbox" id="takeawayCheckbox" class="hidden">
             </label>
           </div>
 
+          <!-- PEMBELI -->
+          <div class="flex flex-col mb-4 mt-4 lg:w-1/4 sm:w-1/2">
+            <label for="buyerNameInput" class="text-lg font-semibold mb-2 text-white">Nama Pembeli</label>
+            <input 
+              type="text" 
+              id="buyerNameInput" 
+              class="border border-gray-300 bg-[#1e1e1e] rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black" 
+              placeholder="Masukkan nama pembeli" 
+            />
+          </div>
           <!-- Modal -->
           <div id="tableModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-lg">
@@ -2370,21 +2381,13 @@
             </div>
           </div>
           <div class="flex justify-between mt-5">
-            <span class="font-bold">Total:</span>
+            <span class="text-lg font-semibold mb-2 text-white">Total:</span>
             <span id="cartTotal" class="font-bold">Rp. 0</span>
           </div>
-          <div class="flex flex-col mb-4">
-            <label for="buyerNameInput" class="text-lg font-semibold mb-2 text-white">Nama Pembeli</label>
-            <input 
-              type="text" 
-              id="buyerNameInput" 
-              class="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black" 
-              placeholder="Masukkan nama pembeli" 
-            />
-          </div>
+          
           <button 
             id="checkoutButton" 
-            class="w-full bg-yellow-500 text-white py-2 mt-4 rounded hover:bg-yellow-600 transition">
+            class="w-full bg-yellow-500 text-white font-Kamerik205Bold py-2 mt-4 rounded hover:bg-yellow-600 transition">
             Checkout
           </button>
         </div>
@@ -2392,37 +2395,44 @@
     </div>
 
     <!-- Bukti Pembayaran -->
-  <div id="paymentReceipt" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg shadow-lg max-w-3xl w-full p-6">
-      <h2 class="text-2xl font-bold mb-4 text-center">Bukti Pembayaran</h2>
-      <div id="receiptContent" class="space-y-4">
-        <!-- Nama Pembeli -->
-        <p class="text-lg font-semibold">Nama: <span id="buyerName"></span></p>
-        <!-- Informasi Meja/Takeaway -->
-        <p class="text-lg font-semibold">Pesanan: <span id="orderType"></span></p>
-        <!-- Detail Barang -->
-        <table class="w-full border-collapse border border-gray-200">
-          <thead>
-            <tr class="bg-gray-100">
-              <th class="border border-gray-200 px-4 py-2">Barang</th>
-              <th class="border border-gray-200 px-4 py-2">Jumlah</th>
-              <th class="border border-gray-200 px-4 py-2">Harga</th>
-              <th class="border border-gray-200 px-4 py-2">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody id="receiptItems" class="text-center"></tbody>
-        </table>
-        <!-- Total Harga -->
-        <div class="text-right mt-4">
-          <p class="text-lg font-bold">Total: Rp. <span id="totalPrice"></span></p>
-        </div>
-      </div>
-      <!-- Tombol -->
-      <div class="flex justify-center mt-6">
-        <button id="closeReceipt" class="bg-red-500 text-white px-4 py-2 rounded">Tutup</button>
+<div id="paymentReceipt" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-lg max-w-3xl w-full p-6">
+    <!-- SweetAlert dalam Modal -->
+    <div id="successAlert" class="hidden p-4 mb-4 text-green-700 bg-green-100 rounded-lg border border-green-200" role="alert">
+      <h2 class="text-lg font-Kamerik205Bold">Pembayaran Berhasil!</h2>
+      <p>Terima kasih telah melakukan transaksi.</p>
+    </div>
+    <h2 class="text-2xl font-bold mb-4 text-center">Bukti Pembayaran</h2>
+    <div id="receiptContent" class="space-y-4">
+      <!-- Nama Pembeli -->
+      <p class="text-lg font-semibold">Nama: <span id="buyerName"></span></p>
+      <!-- Informasi Meja/Takeaway -->
+      <p class="text-lg font-semibold">Pesanan: <span id="orderType"></span></p>
+      <!-- Detail Barang -->
+      <table class="w-full border-collapse border border-gray-200">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border border-gray-200 px-4 py-2">Barang</th>
+            <th class="border border-gray-200 px-4 py-2">Jumlah</th>
+            <th class="border border-gray-200 px-4 py-2">Harga</th>
+            <th class="border border-gray-200 px-4 py-2">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="receiptItems" class="text-center"></tbody>
+      </table>
+      <!-- Total Harga -->
+      <div class="text-right mt-4">
+        <p class="text-lg font-bold">Total: Rp. <span id="totalPrice"></span></p>
       </div>
     </div>
+    <!-- Tombol -->
+    <div class="flex justify-center mt-6">
+      <button id="closeReceipt" class="bg-red-500 text-white px-4 py-2 rounded">Tutup</button>
+    </div>
   </div>
+</div>
+
+
 
 <footer class=" relative mt-10 bg-cover bg-center text-white" style="background-image: url('img/footer.jpg');">
   <!-- Overlay -->
