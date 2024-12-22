@@ -293,6 +293,9 @@ checkoutButton1.addEventListener("click", () => {
       // Ensure "Book Table" button is enabled after reset
       bookTableBtn.disabled = false;
       bookTableBtn.classList.remove("bg-gray-500", "cursor-not-allowed");
+
+      // Kosongkan kolom nama pembeli
+      buyerNameInput.value = '';
     }
   });
 });
