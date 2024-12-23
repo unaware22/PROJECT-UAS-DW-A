@@ -194,7 +194,7 @@ function renderCartItems() {
 
   cartTotal.innerHTML = `
     <div class="text-sm text-gray-400 mb-2">Subtotal: Rp. ${subtotal.toLocaleString("id-ID")}</div>
-    <div class="text-sm text-gray-400 mb-2">Tax (10%): Rp. ${tax.toLocaleString("id-ID")}</div>
+    <div class="text-sm text-gray-400 mb-2">PPN (10%): Rp. ${tax.toLocaleString("id-ID")}</div>
     <div class="text-lg font-bold">Total: Rp. ${total.toLocaleString("id-ID")}</div>
   `;
   updateCartNotification(); // Update notifikasi setiap render
@@ -254,11 +254,15 @@ checkoutButton1.addEventListener("click", () => {
   }
 
   const checkoutMessage = takeawayCheckbox.checked ? "Thank you for choosing takeaway!" : "Thank you for booking a table!";
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const taxRate = 0.1; // Pajak 10%
+  const tax = subtotal * taxRate;
+  const total = subtotal + tax;
 
   // Confirm checkout
   Swal.fire({
     title: "Are you sure?",
-    text: `Do you want to complete the payment of Rp. ${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toLocaleString("id-ID")}?`,
+    text: `Do you want to complete payment of Rp. ${total.toLocaleString("id-ID")}?`,
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -295,7 +299,7 @@ checkoutButton1.addEventListener("click", () => {
       bookTableBtn.classList.remove("bg-gray-500", "cursor-not-allowed");
 
       // Kosongkan kolom nama pembeli
-      buyerNameInput.value = '';
+      buyerNameInput.value = "";
     }
   });
 });
@@ -459,44 +463,81 @@ function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
 
-
 // Fungsi untuk menampilkan bukti pembayaran
-function showReceipt(name, orderType, cart) {
-  document.getElementById("buyerName").textContent = name;
-  document.getElementById("orderType").textContent = orderType;
-
+function showReceipt(name, type, cartItems) {
+  const paymentReceipt = document.getElementById("paymentReceipt");
+  const buyerNameElement = document.getElementById("buyerName");
+  const orderTypeElement = document.getElementById("orderType");
   const receiptItems = document.getElementById("receiptItems");
-  receiptItems.innerHTML = ""; // Kosongkan isi sebelumnya
+  const totalPriceElement = document.getElementById("totalPrice");
 
-  let totalPrice = 0;
+  // Set nama pembeli dan tipe pesanan
+  buyerNameElement.textContent = name;
+  orderTypeElement.textContent = type;
 
-  cart.forEach((item) => {
-    const subtotal = item.price * item.quantity;
-    totalPrice += subtotal;
+  // Reset isi receipt
+  receiptItems.innerHTML = "";
 
-    const row = `
-      <tr>
-        <td class="border border-gray-200 px-4 py-2">${item.name}</td>
-        <td class="border border-gray-200 px-4 py-2">${item.quantity}</td>
-        <td class="border border-gray-200 px-4 py-2">Rp. ${item.price.toLocaleString()}</td>
-        <td class="border border-gray-200 px-4 py-2">Rp. ${subtotal.toLocaleString()}</td>
-      </tr>
-    `;
-    receiptItems.innerHTML += row;
+  // Hitung subtotal, pajak, dan total
+  let subtotal = 0;
+  const taxRate = 0.1; // Pajak 10%
+  let tax = 0;
+  let total = 0;
+
+  cartItems.forEach((item) => {
+    const { name, price, quantity } = item;
+    const itemSubtotal = price * quantity;
+    subtotal += itemSubtotal;
+
+    // Tambahkan item ke tabel
+    const itemRow = `
+          <tr>
+              <td class="border border-gray-200 px-4 py-2">${name}</td>
+              <td class="border border-gray-200 px-4 py-2">${quantity}</td>
+              <td class="border border-gray-200 px-4 py-2">Rp. ${price.toLocaleString("id-ID")}</td>
+              <td class="border border-gray-200 px-4 py-2">Rp. ${itemSubtotal.toLocaleString("id-ID")}</td>
+          </tr>
+      `;
+    receiptItems.innerHTML += itemRow;
   });
 
-  document.getElementById("totalPrice").textContent = totalPrice.toLocaleString();
+  // Hitung pajak dan total
+  tax = subtotal * taxRate;
+  total = subtotal + tax;
+
+  // Tampilkan subtotal, pajak, dan total
+  const summaryHtml = `
+      <tr>
+          <td colspan="2"></td>
+          <td class="text-right font-semibold px-8 py-2">Subtotal:</td>
+          <td class="text-center px-4 py-2">Rp. ${subtotal.toLocaleString("id-ID")}</td>
+      </tr>
+      <tr>
+          <td colspan="2"></td>
+          <td class="text-right font-semibold px-8 py-2">PPN (${(taxRate * 100).toFixed(0)}%):</td>
+          <td class="text-center px-4 py-2">Rp. ${tax.toLocaleString("id-ID")}</td>
+      </tr>
+  `;
+  receiptItems.innerHTML += summaryHtml;
+
+  // Tampilkan total ke elemen total price
+  totalPriceElement.textContent = total.toLocaleString("id-ID");
 
   // Tampilkan modal
-  document.getElementById("paymentReceipt").classList.remove("hidden");
+  paymentReceipt.classList.remove("hidden");
 
   // Tampilkan SweetAlert di dalam modal
   const successAlert = document.getElementById("successAlert");
   successAlert.classList.remove("hidden");
+
+  // Tombol untuk menutup modal
+  const closeReceiptButton = document.getElementById("closeReceipt");
+  closeReceiptButton.addEventListener("click", () => {
+    paymentReceipt.classList.add("hidden");
+  });
 }
 
 // Tombol untuk menutup modal
 document.getElementById("closeReceipt").addEventListener("click", () => {
   document.getElementById("paymentReceipt").classList.add("hidden");
 });
-
