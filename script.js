@@ -422,11 +422,17 @@ bookNowBtn.addEventListener("click", () => {
 });
 
 function showPopup(imageSrc, title, description, rating, price) {
-  // Mengatur konten popup
-  document.getElementById("popup-img").src = imageSrc;
-  document.getElementById("popup-title").textContent = title;
-  document.getElementById("popup-description").textContent = description;
-  document.getElementById("popup-price").textContent = `Rp. ${price.toLocaleString()}`;
+  // Update konten popup
+  document.getElementById('popup-img').src = imageSrc;
+  document.getElementById('popup-title').textContent = title;
+  document.getElementById('popup-description').textContent = description;
+  document.getElementById('popup-price').textContent = `Rp. ${price}`;
+
+   // Update tombol Add to Cart di popup
+   const addToCartButton = document.querySelector('#popup button[onclick="addToCart(this)"]');
+   addToCartButton.setAttribute('data-name', title);
+   addToCartButton.setAttribute('data-price', price);
+   addToCartButton.setAttribute('data-image', imageSrc);
 
   // Menambahkan rating bintang
   const ratingContainer = document.getElementById("popup-rating");
@@ -454,8 +460,8 @@ function showPopup(imageSrc, title, description, rating, price) {
         </svg>`;
   }
 
-  // Tampilkan popup
-  document.getElementById("popup").classList.remove("hidden");
+   // Tampilkan popup
+   document.getElementById('popup').classList.remove('hidden');
 
   // Sembunyikan tombol cart
   const toggleButton = document.getElementById("toggleCartButton");
