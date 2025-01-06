@@ -213,11 +213,11 @@ const takeawayCheckbox = document.getElementById("takeawayCheckbox");
 takeawayCheckbox.addEventListener("change", () => {
   if (takeawayCheckbox.checked) {
     bookTableBtn.disabled = true; // Disable Book Table
-    bookTableBtn.classList.add("bg-gray-500", "cursor-not-allowed");
+    bookTableBtn.classList.add("bg-gray-700", "cursor-not-allowed");
     tableBooked = false; // Reset booking status if previously booked
   } else {
     bookTableBtn.disabled = false; // Enable Book Table
-    bookTableBtn.classList.remove("bg-gray-500", "cursor-not-allowed");
+    bookTableBtn.classList.remove("bg-gray-700", "cursor-not-allowed");
   }
 });
 
@@ -456,11 +456,21 @@ function showPopup(imageSrc, title, description, rating, price) {
 
   // Tampilkan popup
   document.getElementById("popup").classList.remove("hidden");
+
+  // Sembunyikan tombol cart
+  const toggleButton = document.getElementById("toggleCartButton");
+  toggleButton.disabled = true;
+  toggleButton.classList.add("hidden");
 }
 
 function closePopup() {
   // Sembunyikan popup
   document.getElementById("popup").classList.add("hidden");
+
+  //tampilkan tombol cart
+  const toggleButton = document.getElementById("toggleCartButton");
+  toggleButton.disabled = false;
+  toggleButton.classList.remove("hidden");
 }
 
 // Fungsi untuk menampilkan bukti pembayaran
@@ -509,13 +519,13 @@ function showReceipt(name, type, cartItems) {
   const summaryHtml = `
       <tr>
           <td colspan="2"></td>
-          <td class="text-right font-semibold px-8 py-2">Subtotal:</td>
-          <td class="text-center px-4 py-2">Rp. ${subtotal.toLocaleString("id-ID")}</td>
+          <td class="text-right font-semibold px-4 py-2">Subtotal:</td>
+          <td class="text-right border border-gray-200 px-4 py-2">Rp. ${subtotal.toLocaleString("id-ID")}</td>
       </tr>
       <tr>
           <td colspan="2"></td>
-          <td class="text-right font-semibold px-8 py-2">PPN (${(taxRate * 100).toFixed(0)}%):</td>
-          <td class="text-center px-4 py-2">Rp. ${tax.toLocaleString("id-ID")}</td>
+          <td class="text-right font-semibold px-4 py-2">PPN (${(taxRate * 100).toFixed(0)}%):</td>
+          <td class="text-right border border-gray-200 px-4 py-2">Rp. ${tax.toLocaleString("id-ID")}</td>
       </tr>
   `;
   receiptItems.innerHTML += summaryHtml;

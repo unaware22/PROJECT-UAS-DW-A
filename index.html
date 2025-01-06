@@ -2549,31 +2549,31 @@
               <div class="grid grid-cols-3 gap-4">
                 <!-- Example tables -->
                 <button data-table-id="1" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  1A 
+                  1 
                 </button>
                 <button data-table-id="2" class="table-btn border rounded-lg p-4 bg-red-600 cursor-not-allowed" disabled>
-                  1B 
+                  2 
                 </button>
                 <button data-table-id="3" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  1C 
+                  3 
                 </button>
-                <button data-table-id="4" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  2A 
+                <button data-table-id="4" class="table-btn border rounded-lg p-4 bg-red-600 cursor-not-allowed" disabled>
+                  4 
                 </button>
                 <button data-table-id="5" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  2B 
+                  5 
                 </button>
                 <button data-table-id="6" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  2C 
+                  6 
                 </button>
                 <button data-table-id="7" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  3A 
+                  7 
                 </button>
                 <button data-table-id="8" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  3B 
+                  8 
                 </button>
                 <button data-table-id="9" class="table-btn border rounded-lg p-4 bg-green-600 hover:bg-green-200">
-                  3C 
+                  9 
                 </button>
               </div>
 
@@ -2602,48 +2602,47 @@
       </div>
     </div>
 
-    <!-- Bukti Pembayaran -->
-    <div id="paymentReceipt" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-      <div class="bg-white rounded-lg shadow-lg w-full max-w-3xl sm:max-w-4xl p-6 sm:p-4">
+    <div id="paymentReceipt" class="hidden fixed inset-0 bg-white bg-opacity-20 flex items-center justify-center z-50">
+      <div class="bg-[#1d1d1d] rounded-lg shadow-lg w-full max-w-3xl sm:max-w-4xl p-4 sm:p-6 md:p-8">
         <!-- SweetAlert dalam Modal -->
         <div id="successAlert" class="hidden p-4 mb-4 text-green-700 bg-green-100 rounded-lg border border-green-200" role="alert">
           <h2 class="text-lg font-Kamerik205Bold">Pembayaran Berhasil!</h2>
           <p>Terima kasih telah melakukan transaksi.</p>
         </div>
-        <h2 class="text-2xl font-bold mb-4 text-center">Bukti Pembayaran</h2>
-        <div id="receiptContent" class="space-y-4">
+        <h2 class="text-white text-2xl font-bold mb-4 text-center">Bukti Pembayaran</h2>
+        <div id="receiptContent" class="space-y-4 text-white">
           <!-- Nama Pembeli -->
           <p class="text-lg font-semibold">Nama: <span id="buyerName"></span></p>
           <!-- Informasi Meja/Takeaway -->
           <p class="text-lg font-semibold">Pesanan: <span id="orderType"></span></p>
           
           <!-- Detail Barang dengan Responsif -->
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto max-h-48 overflow-y-auto">
             <table class="min-w-full border-collapse border border-gray-200">
               <thead>
-                <tr class="bg-gray-100">
-                  <th class="border border-gray-200 px-4 py-2">Barang</th>
-                  <th class="border border-gray-200 px-4 py-2">Jumlah</th>
-                  <th class="border border-gray-200 px-4 py-2">Harga</th>
-                  <th class="border border-gray-200 px-4 py-2">Subtotal</th>
+                <tr class="bg-gray-300 text-black">
+                  <th class="border border-gray-600 px-4 py-2">Barang</th>
+                  <th class="border border-gray-600 px-4 py-2">Jumlah</th>
+                  <th class="border border-gray-600 px-4 py-2">Harga</th>
+                  <th class="border border-gray-600 px-4 py-2">Subtotal</th>
                 </tr>
               </thead>
-              <tbody id="receiptItems" class="text-center"></tbody>
+              <tbody id="receiptItems" class="text-center text-white"></tbody>
             </table>
           </div>
           
           <!-- Total Harga -->
-          <div class="text-right mt-4">
+          <div class="text-right mt-4 text-white">
             <p class="text-lg font-bold">Total: Rp. <span id="totalPrice"></span></p>
           </div>
         </div>
         
         <!-- Tombol -->
-        <div class="flex justify-center mt-6">
+        <div class="flex justify-center mt-6 text-white">
           <button id="closeReceipt" class="bg-red-500 text-white px-4 py-2 rounded">Tutup</button>
         </div>
       </div>
-    </div>
+    </div>    
     
 
 <footer class=" relative mt-10 bg-cover bg-center text-white" style="background-image: url('img/footer.jpg');">
