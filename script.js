@@ -1,4 +1,3 @@
-// Toggle
 const navbarBtn = document.getElementById("navbar-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -6,13 +5,13 @@ navbarBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
-// Filter Button
+// Tombol Filter
 const filterButtons = document.querySelectorAll(".filter-button");
 const menuItems = document.querySelectorAll(".menu-item");
 
-// Function to apply filter
+// Fungsi untuk menerapkan filter
 function applyFilter(filter) {
-  // Highlight the active button
+  // Sorot tombol yang aktif
   filterButtons.forEach((btn) => {
     btn.classList.remove("bg-yellow-500");
     btn.classList.add("bg-gray-700");
@@ -23,7 +22,7 @@ function applyFilter(filter) {
     activeButton.classList.remove("bg-gray-700");
   }
 
-  // Show/Hide menu items based on filter
+  // Tampilkan/Sembunyikan item menu berdasarkan filter
   menuItems.forEach((item) => {
     if (filter === "all" || item.getAttribute("data-category") === filter) {
       item.style.display = "block";
@@ -33,10 +32,10 @@ function applyFilter(filter) {
   });
 }
 
-// Default: Apply 'All' filter on page load
+// Default: Terapkan filter 'Semua' saat halaman dimuat
 applyFilter("all");
 
-// Add event listener to each filter button
+// Tambahkan pendengar acara ke setiap tombol filter
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.getAttribute("data-filter");
@@ -54,20 +53,20 @@ const checkoutButton1 = document.getElementById("checkoutButton");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || []; // Load cart from localStorage
 
-// Open cart
+// buka cart
 toggleCartButton.addEventListener("click", () => {
   cartSidebar.classList.remove("translate-x-full");
   toggleCartButton.classList.add("hidden");
   renderCartItems();
 });
 
-// Close cart
+// tutup cart
 closeCartButton.addEventListener("click", () => {
   cartSidebar.classList.add("translate-x-full");
   toggleCartButton.classList.remove("hidden");
 });
 
-// Add item to cart
+// Tambahkan item ke cart
 function addToCart(button) {
   const name = button.getAttribute("data-name");
   const price = parseInt(button.getAttribute("data-price"), 10);
@@ -88,13 +87,13 @@ function addToCart(button) {
   Swal.fire({
     position: "center",
     icon: "success",
-    title: `${name} berhasil ditambahkan ke keranjang!`,
+    title: `${name} successfully added to the cart!`,
     showConfirmButton: false,
     timer: 2000,
   });
 }
 
-// Remove item from cart
+// Hapus item dari keranjang
 function removeFromCart(index) {
   Swal.fire({
     title: "Are you sure?",
@@ -119,7 +118,7 @@ function removeFromCart(index) {
   });
 }
 
-// Increase item quantity
+// Tingkatkan jumlah item
 function increaseQuantity(index) {
   cart[index].quantity += 1;
   saveCart();
@@ -127,7 +126,7 @@ function increaseQuantity(index) {
   updateCartNotification();
 }
 
-// Decrease item quantity
+// Kunjungi jumlah item
 function decreaseQuantity(index) {
   if (cart[index].quantity > 1) {
     cart[index].quantity -= 1;
@@ -140,7 +139,7 @@ function decreaseQuantity(index) {
   updateCartNotification();
 }
 
-// Save cart to localStorage
+// Simpan keranjang ke localStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -159,7 +158,7 @@ function updateCartNotification() {
 
 // Fungsi renderCartItems...
 function renderCartItems() {
-  cartItems.innerHTML = ""; // Clear previous items
+  cartItems.innerHTML = ""; // Hapus item-item sebelumnya
   let subtotal = 0;
   const taxRate = 0.1;
   let tax = 0;
@@ -209,14 +208,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // DOM Elements
 const takeawayCheckbox = document.getElementById("takeawayCheckbox");
 
-// Disable "Book Table" if Takeaway is selected
+// Nonaktifkan "Book Table" jika Takeaway dipilih
 takeawayCheckbox.addEventListener("change", () => {
   if (takeawayCheckbox.checked) {
-    bookTableBtn.disabled = true; // Disable Book Table
+    bookTableBtn.disabled = true; 
     bookTableBtn.classList.add("bg-gray-700", "cursor-not-allowed");
-    tableBooked = false; // Reset booking status if previously booked
+    tableBooked = false; 
   } else {
-    bookTableBtn.disabled = false; // Enable Book Table
+    bookTableBtn.disabled = false; 
     bookTableBtn.classList.remove("bg-gray-700", "cursor-not-allowed");
   }
 });
@@ -228,8 +227,8 @@ checkoutButton1.addEventListener("click", () => {
 
   if (!buyerName) {
     Swal.fire({
-      title: "Nama Pembeli Kosong",
-      text: "Silakan masukkan nama pembeli sebelum melanjutkan.",
+      title: "Buyer’s Name is Empty",
+      text: "Please enter the buyer's name before proceeding.",
       icon: "warning",
     });
     return;
@@ -259,7 +258,7 @@ checkoutButton1.addEventListener("click", () => {
   const tax = subtotal * taxRate;
   const total = subtotal + tax;
 
-  // Confirm checkout
+  // konfirmasi checkout
   Swal.fire({
     title: "Are you sure?",
     text: `Do you want to complete payment of Rp. ${total.toLocaleString("id-ID")}?`,
@@ -272,29 +271,29 @@ checkoutButton1.addEventListener("click", () => {
     if (result.isConfirmed) {
       showReceipt(buyerName, takeawayCheckbox.checked ? "Takeaway" : "Dine-In", cart);
 
-      // Reset cart and booking
+      // Reset keranjang belanja dan pemesanan
       cart = [];
       saveCart();
       renderCartItems();
 
-      // Reset table booking if applicable
+      // Reset pemesanan meja jika diperlukana
       if (!takeawayCheckbox.checked) {
         tableBooked = false;
         bookTableBtn.disabled = false;
         bookTableBtn.textContent = "Book Table";
         bookTableBtn.classList.remove("bg-gray-500", "cursor-not-allowed");
 
-        // Deselect Table
+        // Batal pemilihan meja
         if (selectedTable) {
           selectedTable.classList.remove("bg-green-300");
           selectedTable = null;
         }
       }
 
-      // Reset Takeaway checkbox after checkout
+      // Reset kotak centang take away setelah pembayaran
       takeawayCheckbox.checked = false;
 
-      // Ensure "Book Table" button is enabled after reset
+      // memastikan tombol book tabel diaktifkan setelah reset
       bookTableBtn.disabled = false;
       bookTableBtn.classList.remove("bg-gray-500", "cursor-not-allowed");
 
@@ -365,45 +364,44 @@ fetch(`https://api.opencagedata.com/geocode/v1/json?q=-6.2088,106.8456&key=${API
   .catch((error) => console.error("Failed to fetch schedule:", error));
 
 // Book table
-// Booking Table Logic
 const bookTableBtn = document.getElementById("bookTableBtn");
 const tableModal = document.getElementById("tableModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const bookNowBtn = document.getElementById("bookNowBtn");
 const tableButtons = document.querySelectorAll(".table-btn");
-let selectedTable = null; // Track selected table
-let tableBooked = false; // Track booking status
+let selectedTable = null; // Lacak meja yang dipilih
+let tableBooked = false; // Lacak setatus pemesanan
 
-// Show modal
+// Tampilan modal
 bookTableBtn.addEventListener("click", () => {
   tableModal.classList.remove("hidden");
 });
 
-// Close modal
+// Tutup modal
 closeModalBtn.addEventListener("click", () => {
   tableModal.classList.add("hidden");
 });
 
-// Select table
+// Pilih meja
 tableButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (button.disabled) return; // Skip disabled tables
+    if (button.disabled) return; // Lewati meja yang dinonaktifkan
 
-    // Deselect previously selected table
+    // Batalkan pilihan meja sebelumnya
     if (selectedTable) {
       selectedTable.classList.remove("bg-green-300");
     }
 
-    // Select new table
+    // Pilih meja baru
     selectedTable = button;
     selectedTable.classList.add("bg-green-300");
 
-    // Enable "Book Now" button
+    // Aktifkan button pesan sekarang
     bookNowBtn.disabled = false;
   });
 });
 
-// Book the table
+// Pilih meja
 bookNowBtn.addEventListener("click", () => {
   if (selectedTable) {
     Swal.fire({
@@ -413,11 +411,11 @@ bookNowBtn.addEventListener("click", () => {
 
     tableModal.classList.add("hidden");
 
-    // Mark table as booked
+    // Tandai meja sebagai telah dipesan
     bookTableBtn.disabled = true;
     bookTableBtn.textContent = `Table ${selectedTable.dataset.tableId} Booked`;
     bookTableBtn.classList.add("bg-gray-500", "cursor-not-allowed");
-    tableBooked = true; // Update booking status
+    tableBooked = true; // Memperbarui status pemesanan
   }
 });
 
@@ -558,7 +556,7 @@ document.getElementById("closeReceipt").addEventListener("click", () => {
   document.getElementById("paymentReceipt").classList.add("hidden");
 });
 
-// Smooth scroll for navbar links
+// Animasi Smooth scroll pada saat pindah halaman menggunakan navbar 
 document.querySelectorAll('.scroll-link').forEach(link => {
   link.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
@@ -573,4 +571,32 @@ document.querySelectorAll('.scroll-link').forEach(link => {
       }
     }
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".animate-on-scroll");
+
+  // Set initial styles
+  elements.forEach(el => {
+    el.style.opacity = 0; // Awalnya elemen tidak terlihat
+    el.style.transform = "translateY(20px)"; // Geser elemen ke bawah
+    el.style.transition = "opacity 0.7s ease, transform 0.7s ease"; // Tambahkan transisi
+  });
+
+  // Observer untuk mendeteksi elemen yang masuk ke viewport
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Ketika elemen terlihat
+        entry.target.style.opacity = 1; // Elemen terlihat
+        entry.target.style.transform = "translateY(0)"; // Posisi normal
+        observer.unobserve(entry.target); // Berhenti mengamati setelah animasi selesai
+      }
+    });
+  }, {
+    threshold: 0.1, // Elemen terpicu jika 10% terlihat di viewport
+  });
+
+  // Observasi semua elemen yang memiliki kelas animate-on-scroll
+  elements.forEach(el => observer.observe(el));
 });

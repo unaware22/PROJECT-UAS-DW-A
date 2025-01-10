@@ -38,14 +38,13 @@
             </button>
         
            <!-- Navbar Menu (mobile) -->
-            <div id="mobile-menu" class="absolute top-full right-0 w-full bg-[#252525] shadow-md hidden flex-col items-center gap-4 py-5 px-4 md:hidden z-10 text-center text-xs">
-                <nav class="space-y-5">
-                    <a href="#aboutsection" class="block text-white hover:text-gray-500">ABOUT</a>
-                    <a href="#menu" class="block text-white hover:text-gray-500">MENU</a>
-                    <a href="#contact" class="block text-white hover:text-gray-500">CONTACT US</a>
-                </nav>
-                
-            </div>
+           <div id="mobile-menu" class="absolute top-full right-0 w-full bg-[#252525] shadow-md hidden flex-col items-center gap-4 py-5 px-4 md:hidden z-10 text-center text-xs">
+            <nav class="space-y-5">
+                <a href="#aboutsection" class="block text-white hover:text-gray-500 scroll-link">ABOUT</a>
+                <a href="#menu" class="block text-white hover:text-gray-500 scroll-link">MENU</a>
+                <a href="#footer" class="block text-white hover:text-gray-500 scroll-link">CONTACT US</a>
+            </nav> 
+          </div>        
         </header>
 
         <!-- Hero Content -->
@@ -72,19 +71,19 @@
     <section id="aboutsection" class="bg-yellow-400 text-gray-900 py-16">
         <div class="container mx-auto text-center px-6 md:px-12">
             <!-- Images -->
-            <div class="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-10">
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-10 animate-on-scroll">
                 <img src="img/sushi.jpg" alt="about1" class="w-full sm:w-36 sm:h-36 md:w-1/4 md:h-auto object-cover rounded-lg shadow-md">
                 <img src="img/about 2.jpg" alt="about2" class="w-full sm:w-36 sm:h-36 md:w-1/4 md:h-auto object-cover rounded-lg shadow-md">
                 <img src="img/about 4.jpg" alt="about3" class="w-full sm:w-36 sm:h-36 md:w-1/4 md:h-auto object-cover rounded-lg shadow-md">
             </div>
     
             <!-- Text -->
-            <p id="aboutsection" class="mt-10 text-lg md:text-xl max-w-6xl mx-auto border-b border-gray-700 pb-4 font-extrabold">
+            <p id="aboutsection" class="mt-10 text-lg md:text-xl max-w-6xl mx-auto border-b border-gray-700 pb-4 font-extrabold animate-on-scroll">
                 Welcome to Resto Kemang, where the art of Japanese cuisine comes alive in every dish. Indulge in the finest sushi, made with fresh, premium ingredients, savor the comforting flavors of hearty <span class="font-Kamerik205Bold">ramen with rich, authentic broths, and experience the melt-in-your-mouth perfection of premium wagyu beef. Every bite is crafted to perfection, promising an unforgettable dining experience that celebrates the true essence of Japanese culinary traditions.</span> 
             </p>
     
             <!-- Stats -->
-            <div class="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 mt-10 text-xl md:text-2xl font-bold">
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 mt-10 text-xl md:text-2xl font-bold animate-on-scroll">
                 <div class="text-center">
                     <p>1,000+</p>
                     <p class="text-sm font-normal">Satisfied Customers</p>
@@ -102,12 +101,12 @@
     </section>
     
     <section class="container mx-auto px-4 mt-14"  id="menu">
-      <div class="flex justify-center items-center mb-14">
+      <div class="flex justify-center items-center mb-14 animate-on-scroll">
         <h1 class="text-6xl font-bold text-white font-customFont3">MENU</h1>
       </div>
 
       <!-- Filter Buttons -->
-      <div class="overflow-x-auto scrollbar-hide">
+      <div class="overflow-x-auto scrollbar-hide animate-on-scroll">
         <div class="flex mb-10 md:justify-center sm:justify-start space-x-4 md:text-xl sm:text-xs font-customFont2 px-4">
           <button
             class="filter-button active bg-gray-700 text-white py-2 px-4 rounded"
@@ -142,10 +141,9 @@
         </div>
       </div>
 
-
       <div id="menuGrid" class="grid sm360:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <!-- Card 1 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="bowl">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="bowl">
           <!-- Gambar menu -->
           <img 
             src="img/cikenramendone.jpg" 
@@ -229,7 +227,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="bowl">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="bowl">
           <!-- Gambar menu -->
           <img 
             src="img/sifudramen.jpg" 
@@ -332,7 +330,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="bowl">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="bowl">
           <!-- Gambar menu -->
           <img 
             src="img/Chanko-Nabe-Recipe.jpeg.jpg" 
@@ -430,7 +428,7 @@
 
 
         <!-- Card 4 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="bowl">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="bowl">
           <!-- Gambar menu -->
           <img 
             src="img/donburi.jpg" 
@@ -527,7 +525,7 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="curry">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="curry">
           <!-- Gambar menu -->
           <img 
             src="img/spicy-curry-roka.jpg" 
@@ -630,7 +628,7 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="bowl">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="bowl">
           <!-- Gambar menu -->
           <img 
             src="img/soba.jpeg" 
@@ -727,7 +725,7 @@
         </div>
 
          <!-- Card 7 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="bowl">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="bowl">
           <!-- Gambar menu -->
           <img 
             src="img/udon.jpeg" 
@@ -824,7 +822,7 @@
         </div>
 
          <!-- Card 8 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="curry">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="curry">
           <!-- Gambar menu -->
           <img 
             src="img/currykatsudone.jpg" 
@@ -921,7 +919,7 @@
         </div>
 
          <!-- Card 9 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="curry">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="curry">
           <!-- Gambar menu -->
           <img 
             src="img/beefcurry.jpeg" 
@@ -1018,7 +1016,7 @@
         </div>
 
         <!-- Card 23 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="curry">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="curry">
           <!-- Gambar menu -->
           <img 
             src="img/omlet.jpg" 
@@ -1115,7 +1113,7 @@
         </div>
 
          <!-- Card 10 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="sushi">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="sushi">
           <!-- Gambar menu -->
           <img 
             src="img/sashimi.jpeg" 
@@ -1218,7 +1216,7 @@
         </div>
 
         <!-- Card 11 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="sushi">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="sushi">
           <!-- Gambar menu -->
           <img 
             src="img/inarizushi.jpg" 
@@ -1315,7 +1313,7 @@
         </div>
         
         <!-- Card 21 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="sushi">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="sushi">
           <!-- Gambar menu -->
           <img 
             src="img/maki.webp" 
@@ -1412,7 +1410,7 @@
         </div>
 
         <!-- Card 22 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="sushi">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="sushi">
           <!-- Gambar menu -->
           <img 
             src="img/uramaki.jpg" 
@@ -1509,7 +1507,7 @@
         </div>
         
         <!-- Card 24 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="sushi">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="sushi">
           <!-- Gambar menu -->
           <img 
             src="img/Chirashi.jpg" 
@@ -1606,7 +1604,7 @@
         </div>
         
          <!-- Card 12 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="snack">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="snack">
           <!-- Gambar menu -->
           <img 
             src="img/karaage.jpg" 
@@ -1703,7 +1701,7 @@
         </div>
 
          <!-- Card 13 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="snack">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="snack">
           <!-- Gambar menu -->
           <img 
             src="img/gyoza.jpg" 
@@ -1800,7 +1798,7 @@
         </div>
 
          <!-- Card 14 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="other">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="other">
           <!-- Gambar menu -->
           <img 
             src="img/nasipuithhdone.jpg" 
@@ -1897,7 +1895,7 @@
         </div>
 
          <!-- Card 15 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="drink">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="drink">
           <!-- Gambar menu -->
           <img 
             src="img/Royal-Milk-Tea.jpg" 
@@ -1994,7 +1992,7 @@
         </div>
 
          <!-- Card 16 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="drink">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="drink">
           <!-- Gambar menu -->
           <img 
             src="img/uurocha.jpg" 
@@ -2091,7 +2089,7 @@
         </div>
 
          <!-- Card 17 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="drink">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="drink">
           <!-- Gambar menu -->
           <img 
             src="img/genmaicha.jpg" 
@@ -2188,7 +2186,7 @@
         </div>
 
          <!-- Card 18 -->
-         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="drink">
+         <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="drink">
           <!-- Gambar menu -->
           <img 
             src="img/ocha.jpg" 
@@ -2285,7 +2283,7 @@
         </div>
 
          <!-- Card 19 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="snack">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="snack">
           <!-- Gambar menu -->
           <img 
             src="img/potato-korokke.jpg" 
@@ -2382,7 +2380,7 @@
         </div>
 
         <!-- Card 20 -->
-        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group" data-category="drink">
+        <div class="menu-item relative bg-[#1d1d1d] rounded-lg shadow-md overflow-hidden group animate-on-scroll" data-category="drink">
           <!-- Gambar menu -->
           <img 
             src="img/aqua3.jpeg" 
@@ -2477,8 +2475,8 @@
             </div>
           </div>
         </div>
-
     </section>
+
     <div class="relative">
       <!-- Button to toggle cart -->
       <button 
@@ -2513,7 +2511,7 @@
         </div>
         <!-- Cart Footer -->
         <div class="p-4 border-t border-gray-700">
-          <p class="text-lg font-semibold mb-2 text-white">Pilih Salah Satu</p>
+          <p class="text-lg font-semibold mb-2 text-white">Choose One</p>
           <div class="flex items-center space-x-4 " >
             
             <!-- Book Table Button -->
@@ -2532,12 +2530,12 @@
 
           <!-- PEMBELI -->
           <div class="flex flex-col mb-4 mt-4 lg:w-1/4 sm:w-1/2">
-            <label for="buyerNameInput" class="text-lg font-semibold mb-2 text-white">Nama Pembeli</label>
+            <label for="buyerNameInput" class="text-lg font-semibold mb-2 text-white">Buyer's Name</label>
             <input 
               type="text" 
               id="buyerNameInput" 
               class="border border-gray-300 bg-[#1e1e1e] rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white" 
-              placeholder="Masukkan nama pembeli" 
+              placeholder="Enter the buyer's name" 
             />
           </div>
           <!-- Modal -->
@@ -2606,24 +2604,24 @@
       <div class="bg-[#1d1d1d] rounded-lg shadow-lg w-full max-w-3xl sm:max-w-4xl p-4 sm:p-6 md:p-8">
         <!-- SweetAlert dalam Modal -->
         <div id="successAlert" class="hidden p-4 mb-4 text-green-700 bg-green-100 rounded-lg border border-green-200" role="alert">
-          <h2 class="text-lg font-Kamerik205Bold">Pembayaran Berhasil!</h2>
-          <p>Terima kasih telah melakukan transaksi.</p>
+          <h2 class="text-lg font-Kamerik205Bold">Payment Successful!</h2>
+          <p>Thank you for your transaction.</p>
         </div>
-        <h2 class="text-white text-2xl font-bold mb-4 text-center">Bukti Pembayaran</h2>
+        <h2 class="text-white text-2xl font-bold mb-4 text-center">Payment Proof</h2>
         <div id="receiptContent" class="space-y-4 text-white">
           <!-- Nama Pembeli -->
-          <p class="text-lg font-semibold">Nama: <span id="buyerName"></span></p>
+          <p class="text-lg font-semibold">Name: <span id="buyerName"></span></p>
           <!-- Informasi Meja/Takeaway -->
-          <p class="text-lg font-semibold">Pesanan: <span id="orderType"></span></p>
+          <p class="text-lg font-semibold">Order: <span id="orderType"></span></p>
           
           <!-- Detail Barang dengan Responsif -->
           <div class="overflow-x-auto max-h-48 overflow-y-auto">
             <table class="min-w-full border-collapse border border-gray-200">
               <thead>
                 <tr class="bg-gray-300 text-black">
-                  <th class="border border-gray-600 px-4 py-2">Barang</th>
-                  <th class="border border-gray-600 px-4 py-2">Jumlah</th>
-                  <th class="border border-gray-600 px-4 py-2">Harga</th>
+                  <th class="border border-gray-600 px-4 py-2">Item</th>
+                  <th class="border border-gray-600 px-4 py-2">Quantity</th>
+                  <th class="border border-gray-600 px-4 py-2">Price</th>
                   <th class="border border-gray-600 px-4 py-2">Subtotal</th>
                 </tr>
               </thead>
@@ -2639,15 +2637,19 @@
         
         <!-- Tombol -->
         <div class="flex justify-center mt-6 text-white">
-          <button id="closeReceipt" class="bg-red-500 text-white px-4 py-2 rounded">Tutup</button>
-        </div>
+          <button 
+            id="closeReceipt" 
+            style="background-color: black (255, 255, 255, 0.1); border: 2px solid red; color: red; padding: 10px 20px; border-radius: 8px; font-size: 16px; cursor: pointer;"
+          >
+            Close
+          </button>
+        </div>        
       </div>
     </div>    
-    
 
-<footer class=" relative mt-10 bg-cover bg-center text-white" style="background-image: url('img/footer.jpg');">
+<footer class=" relative mt-10 bg-cover bg-center text-white animate-on-scroll" style="background-image: url('img/footer.jpg');">
   <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+  <div class="absolute inset-0 bg-black bg-opacity-70 "></div>
 
   <!-- Footer Content -->
   <div class="relative container mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center" id="footer">
@@ -2699,7 +2701,6 @@
           </svg>
         </a>
         <a href="#">
-          <!-- Twitter Icon -->
           <svg class="w-6 h-6 text-yellow-400 hover:text-yellow-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016.67 2a4.48 4.48 0 00-4.52 4.49c0 .35.04.69.12 1.01A12.94 12.94 0 013 4.24a4.49 4.49 0 001.39 5.98A4.52 4.52 0 012 9.7v.06a4.48 4.48 0 003.6 4.4 4.5 4.5 0 01-2.01.08 4.48 4.48 0 004.19 3.12A9 9 0 012 18.57a12.85 12.85 0 006.95 2.04c8.34 0 12.9-6.91 12.9-12.9 0-.2 0-.42-.02-.63A9.22 9.22 0 0023 3z"></path>
           </svg>
@@ -2714,13 +2715,10 @@
     <p class="text-center text-sm">&copy; 2024 Resto Kemang. All rights reserved.</p>
   </div>
 </footer>
-
-
-      
+ 
   <script src="script.js">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
-
 </body>
 </html>
